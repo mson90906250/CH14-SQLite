@@ -70,15 +70,20 @@ public class M1405browse extends AppCompatActivity implements View.OnClickListen
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btIdtop:
+                ctlFirst();
                 break;
             case R.id.btIdend:
+                ctlLast();
                 break;
             case R.id.btIdPrev:
+                ctlPrev();
                 break;
             case R.id.btIdNext:
+                ctlNext();
                 break;
         }
     }
+
 
     //自定義函數---------------------------------------------------
     private void initDB() {//確認是否有資料庫 ,若無就給新的
@@ -105,6 +110,32 @@ public class M1405browse extends AppCompatActivity implements View.OnClickListen
             e002.setText("");
             e003.setText("");
         }
+    }
+
+    private void ctlNext() {
+        index++;
+        if (index>recSet.size()-1){
+            index = 0;
+        }
+        showRec(index);
+    }
+
+    private void ctlPrev() {
+        index--;
+        if (index<0){
+            index = recSet.size()-1;
+        }
+        showRec(index);
+    }
+
+    private void ctlLast() {
+        index = recSet.size() - 1;
+        showRec(index);
+    }
+
+    private void ctlFirst() {
+        index = 0;
+        showRec(index);
     }
 
 
