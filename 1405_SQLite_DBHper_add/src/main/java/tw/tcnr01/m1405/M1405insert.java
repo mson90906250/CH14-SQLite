@@ -6,10 +6,23 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-class M1405insert extends AppCompatActivity {
+public class M1405insert extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.m1405insert);
+        setupViewComponent();
+        initDB();
+
+    }
+
+
+    private void setupViewComponent() {
+
+    }
+
+    private void initDB() {
+
     }
 
 
