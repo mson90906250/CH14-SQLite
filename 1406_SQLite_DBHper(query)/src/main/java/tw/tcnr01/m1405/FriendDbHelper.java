@@ -77,6 +77,41 @@ public class FriendDbHelper extends SQLiteOpenHelper {
         Cursor recSet = db.rawQuery(sql, null);
         return recSet.getCount();
     }
+
+    public String FindRec(String tname) {
+        SQLiteDatabase db = getReadableDatabase();
+        String fldSet = null;
+        String sql = "SELECT * FROM " + DB_TABLE +
+                " WHERE name LIKE ? ORDER BY id ASC";// ?是參數
+        String[] args = {"%" + tname + "%"};
+
+        Cursor recSet = db.rawQuery(sql, args);//取出多筆資料,  args 將會放在 ? 裡
+
+        int columnCount = recSet.getColumnCount();//取得一列有幾個欄位
+        Log.d(TAG,"ans:"+recSet.getCount());
+        if (recSet.getCount() != 0)
+        {
+            recSet.moveToFirst();//移到第一筆資料
+
+            fldSet = recSet.getString(0) + " "
+                    +recSet.getString(1) + " "
+                    +recSet.getString(2) + " "
+                    +recSet.getString(3) + "\n";
+
+            while (recSet.moveToNext())
+            {
+                for (int i = 0; i < columnCount; i++)
+                {
+                    fldSet += recSet.getString(i) + " ";
+                }
+                fldSet +="\n";
+            }
+        }
+        recSet.close();
+        db.close();
+        return fldSet;
+    }
+
 // ---------
 
 }

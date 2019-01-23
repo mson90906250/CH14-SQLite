@@ -28,6 +28,7 @@ public class M1405query extends AppCompatActivity implements View.OnClickListene
         setContentView(R.layout.m1405query);
         setupViewComponent();
         initDB();//起始化DB;
+        count_t.setText("共計:"+Integer.toString(dbHper.RecCount())+"筆");
     }
 
 
@@ -37,7 +38,7 @@ public class M1405query extends AppCompatActivity implements View.OnClickListene
         e002 = (EditText) findViewById(R.id.edtGrp);
         e003 = (EditText) findViewById(R.id.edtAddr);
         count_t = (TextView) findViewById(R.id.count_t);
-        b001 = (Button) findViewById(R.id.btnAdd);
+        b001 = (Button) findViewById(R.id.btnquery);
 
         b001.setOnClickListener(this);
 
@@ -46,45 +47,24 @@ public class M1405query extends AppCompatActivity implements View.OnClickListene
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.btnAdd:
+            case R.id.btnquery:
 
+                String result = null;
                 // 查詢name跟在e001上打得是否有有此筆資料
                 String tname = e001.getText().toString().trim();
-                String tgrp = e002.getText().toString().trim();
-                String taddress = e003.getText().toString().trim();
-
-                if (tname.equals("") || tgrp.equals("")) {//檢查tname,tgrp是否為""
-                    Toast.makeText(M1405query.this, "資料空白無法新增 !", Toast.LENGTH_SHORT).show();
-                    return;
+                if (tname.length() != 0)
+                {
+                    String rec = dbHper.FindRec(tname);
+                    if (rec != null)
+                    {
+                        result = "找到的資料為 ：\n" + rec;
+                    } else
+                    {
+                        result = "找不到指定的編號：" + tname;
+                    }
+                    Toast.makeText(M1405query.this, result, Toast.LENGTH_LONG)
+                            .show();
                 }
-
-                String msg = null;
-                long rowID = dbHper.insertRec(tname,tgrp,taddress);//真正執行SQL
-
-                if (rowID != -1) {
-                    e001.setHint("請繼續輸入");
-                    e001.setText("");
-                    e002.setText("");
-                    e003.setText("");
-
-                    msg = "新增記錄  成功 ! \n" + "目前資料表共有 " + dbHper.RecCount() + " 筆記錄 !";
-                } else {
-                    msg = "新增記錄  失敗 !";
-                }
-
-                Toast.makeText(M1405query.this, msg, Toast.LENGTH_SHORT).show();
-                count_t.setText("共計:" + Integer.toString(dbHper.RecCount()) + "筆");
-
-                /*// 獲取輸入法打開的狀態-------------------------------
-                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                boolean isOpen = imm.isActive();
-                // isOpen若返回true，則表示輸入法打開
-                if (isOpen == true) {// 如果輸入法打開則關閉，如果沒打開則打開
-                    // InputMethodManager m=(InputMethodManager)
-                    // getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
-                }*/
-
                 break;
         }
     }
