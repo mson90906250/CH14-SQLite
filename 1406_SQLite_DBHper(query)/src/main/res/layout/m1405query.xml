@@ -77,24 +77,24 @@
         tools:targetApi="o" />
 
     <Button
-        android:id="@+id/btnAdd"
+        android:id="@+id/btnquery"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_below="@+id/edtAddr"
+        android:layout_alignParentStart="true"
         android:layout_marginStart="24dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
-        android:text="@string/btnadd"/>
+        android:text="@string/btnquery" />
 
     <TextView
         android:id="@+id/count_t"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentStart="false"
         android:layout_alignParentEnd="true"
-        android:text="@string/count_t"/>
+        android:layout_alignParentBottom="true"
+        android:text="@string/count_t" />
 
 
 

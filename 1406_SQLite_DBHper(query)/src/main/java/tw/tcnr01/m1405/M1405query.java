@@ -25,7 +25,7 @@ public class M1405query extends AppCompatActivity implements View.OnClickListene
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.m1405insert);
+        setContentView(R.layout.m1405query);
         setupViewComponent();
         initDB();//起始化DB;
     }
