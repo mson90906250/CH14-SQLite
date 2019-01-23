@@ -47,6 +47,7 @@
         android:layout_toEndOf="@+id/TextView2"
         android:autofillHints=""
         android:background="@color/White"
+        android:hint="@string/m_insert"
         android:inputType=""
         android:labelFor="@+id/TextView2"
         tools:targetApi="o" />
@@ -68,6 +69,7 @@
         android:layout_toEndOf="@+id/TextView3"
         android:autofillHints=""
         android:background="@color/White"
+        android:hint="@string/m_insert"
         android:inputType=""
         android:labelFor="@+id/TextView3"
         tools:targetApi="o" />
