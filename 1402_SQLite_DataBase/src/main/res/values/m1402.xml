@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="m1402_t001">姓名：</string>
+    <string name="m1402_t002">群組：</string>
+    <string name="m1402_t003">地址：</string>
+    <string name="m1402_badd">加入</string>
+    <string name="m1402_bQuery">查詢</string>
+    <string name="m1402_bList">列表</string>
+    <string name="Hint">請輸入資料</string>
+    <string name="m_batch">批次新增</string>
+    <string name="m_clear">清除全部</string>
+    <string name="st_hint" />
+
+
+</resources>

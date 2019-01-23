@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string name="m1401_t001">和電腦猜拳</string>
+    <string name="m1401_t002">電腦出拳</string>
+    <string name="m1401_t003">玩家出拳</string>
+    <string name="m1401_b001">剪刀</string>
+    <string name="m1401_b002">石頭</string>
+    <string name="m1401_b003">布</string>
+    <string name="m1401_s001">玩家選擇:</string>
+    <string name="m1401_f000">判定輸贏：</string>
+    <string name="m1401_f001">恭喜，你贏了！</string>
+    <string name="m1401_f002">很可惜，你輸了！</string>
+    <string name="m1401_f003">雙方平手！</string>
+    <string name="m1401_s002">電腦選擇:</string>
+    <string name="li_t001">全部局數：</string>
+    <string name="li_t002">玩家贏：</string>
+    <string name="li_t003">電腦贏：</string>
+    <string name="li_t004">平手：</string>
+    <string name="li_b001">回到遊戲</string>
+    <string name="li_h001">顯示次數</string>
+    <string name="m1401_show">顯示局數統計資料</string>
+
+    <string name="m1401_main">啟動電腦猜拳遊戲程式</string>
+    <string name="m1401_result">遊戲結果:你總共玩</string>
+    <string name="m1401_cancel">你選擇取消遊戲。</string>
+    <string name="m1401_PlayerWin">贏</string>
+    <string name="m1401_comWin">輸</string>
+    <string name="m1401_draw">平</string>
+    <string name="m1401_table">局</string>
+
+    <string name="m1401_btnok">完成遊戲</string>
+
+    <string name="m1401_btnLoadResult">載入局數</string>
+    <string name="m1401_btnSaveResult">儲存局數</string>
+    <string name="m1401_btnClearResult">清除局數</string>
+    <string name="m1401_aboutme">關於我</string>
+
+</resources>

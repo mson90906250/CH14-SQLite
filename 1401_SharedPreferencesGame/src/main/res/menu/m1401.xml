@@ -1,0 +1,31 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="tw.tcnr01.m1002.M1002">
+    <item
+        android:id="@+id/btnShowResult"
+        android:orderInCategory="100"
+        android:title="@string/m1401_show"       />
+    <item
+        android:id="@+id/btnSaveResult"
+        android:orderInCategory="101"
+        android:title="@string/m1401_btnSaveResult" />
+    <item
+        android:id="@+id/btnLoadResult"
+        android:orderInCategory="102"
+        android:title="@string/m1401_btnLoadResult" />
+    <item
+        android:id="@+id/btnClearResult"
+        android:orderInCategory="103"
+        android:title="@string/m1401_btnClearResult" />
+    <item
+        android:id="@+id/btnaboutme"
+        android:orderInCategory="104"
+        android:title="@string/m1401_aboutme" />
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="105"
+        android:title="@string/action_settings" />
+
+
+</menu>
