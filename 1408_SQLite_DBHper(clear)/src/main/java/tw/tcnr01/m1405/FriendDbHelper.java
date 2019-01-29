@@ -168,6 +168,23 @@ public class FriendDbHelper extends SQLiteOpenHelper {
         return c_number;
     }
 
+    public int clearRec() {
+        SQLiteDatabase db = getWritableDatabase();
+        String sql = "SELECT * FROM " + DB_TABLE;
+        Cursor recSet = db.rawQuery(sql, null);
+        if (recSet.getCount() != 0) {
+//   String whereClause = "id < 0";
+            int rowsAffected = db.delete(DB_TABLE, "1", null);//刪除所有資料
+            // From the documentation of SQLiteDatabase delete method:
+            // To remove all rows and get a count pass "1" as the whereClause.
+            db.close();
+            return rowsAffected;//刪除幾筆資料
+        } else {
+            db.close();
+            return -1;//取消刪除
+        }
+    }
+
 // ---------
 
 }

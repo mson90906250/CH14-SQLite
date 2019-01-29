@@ -1,5 +1,6 @@
 package tw.tcnr01.m1405;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,6 +18,9 @@ public class M1405 extends AppCompatActivity {
     private ArrayList<String> recSet;
     private int index = 0;
     String msg = null;
+
+    protected static final int BUTTON_POSITIVE = -1;
+    protected static final int BUTTON_NEGATIVE = -2;
 
 
     @Override
@@ -90,6 +94,17 @@ public class M1405 extends AppCompatActivity {
                 long totrec=dbHper.RecCount();
                 Toast.makeText(getApplicationContext(), "總計:"+totrec, Toast.LENGTH_LONG).show();
                 break;
+            case R.id.m_clear://清空資料
+                // 清空
+                MyAlertDialog aldDial = new MyAlertDialog(M1405.this);
+                aldDial.setTitle("清空所有資料");
+                aldDial.setMessage("資料刪除無法復原\n確定將所有資料刪除嗎?");
+                aldDial.setIcon(android.R.drawable.ic_dialog_info);
+                aldDial.setCancelable(false); //返回鍵關閉
+                aldDial.setButton(BUTTON_POSITIVE, "確定清空", aldBtListener);
+                aldDial.setButton(BUTTON_NEGATIVE, "取消清空", aldBtListener);
+                aldDial.show();
+                break;
             case R.id.action_settings:
                 this.finish();
                 break;
@@ -97,5 +112,23 @@ public class M1405 extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    private DialogInterface.OnClickListener aldBtListener = new DialogInterface.OnClickListener() {
+
+        @Override
+        public void onClick(DialogInterface dialog, int which) {
+            switch (which)
+            {
+                case BUTTON_POSITIVE:
+                    int rowsAffected = dbHper.clearRec();
+                    msg = "資料表已空 !共刪除" + rowsAffected + " 筆";
+                    break;
+                case BUTTON_NEGATIVE:
+                    msg = "放棄刪除所有資料 !";
+                    break;
+            }
+            Toast.makeText(M1405.this, msg, Toast.LENGTH_SHORT).show();
+        }
+    };
 
 }
