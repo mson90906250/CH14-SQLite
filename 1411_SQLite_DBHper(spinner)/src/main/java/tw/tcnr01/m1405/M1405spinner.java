@@ -18,6 +18,9 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+/*//---
+            mSpnName.setSelection(index, true); //spinner 小窗跳到第幾筆
+//---------------*/
 
 public class M1405spinner extends AppCompatActivity implements View.OnClickListener {
     private TextView count_t;
@@ -156,7 +159,7 @@ public class M1405spinner extends AppCompatActivity implements View.OnClickListe
                     showRec(index);
                 }
                 Toast.makeText(M1405spinner.this, msg, Toast.LENGTH_SHORT).show();
-                setupViewComponent();
+                setupViewComponent();//更新完後重新讀取資料
                 break;
 
             case R.id.btIdDel:
