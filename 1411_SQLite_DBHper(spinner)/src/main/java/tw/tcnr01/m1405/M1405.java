@@ -117,6 +117,8 @@ public class M1405 extends AppCompatActivity {
                 break;
 
             case  R.id.m_spinner:
+                it.setClass(M1405.this, M1405spinner.class);
+                startActivity(it);
                 break;
 
             case R.id.action_settings:

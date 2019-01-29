@@ -111,7 +111,7 @@ public class M1405spinner extends AppCompatActivity implements View.OnClickListe
             e001.setText(fld[1]);
             e002.setText(fld[2]);
             e003.setText(fld[3]);
-            index=position;
+            index=position;//改變目前所在的資料位置
         }
 
         @Override
@@ -156,6 +156,7 @@ public class M1405spinner extends AppCompatActivity implements View.OnClickListe
                     showRec(index);
                 }
                 Toast.makeText(M1405spinner.this, msg, Toast.LENGTH_SHORT).show();
+                setupViewComponent();
                 break;
 
             case R.id.btIdDel:
