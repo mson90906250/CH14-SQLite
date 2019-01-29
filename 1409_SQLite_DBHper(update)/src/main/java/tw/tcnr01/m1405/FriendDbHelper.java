@@ -206,6 +206,21 @@ public class FriendDbHelper extends SQLiteOpenHelper {
         }
     }
 
+    public int deleteRec(String b_id) {
+        SQLiteDatabase db = getWritableDatabase();
+        String sql = "SELECT * FROM " + DB_TABLE;
+        Cursor recSet = db.rawQuery(sql, null);
+        if (recSet.getCount() != 0){
+            String whereClause = "id='" + b_id + "'";
+            int rowsAffected = db.delete(DB_TABLE, whereClause, null);//真正刪除資料
+            db.close();
+            return rowsAffected;
+        } else  {
+            db.close();
+            return -1;
+        }
+    }
+
 // ---------
 
 }

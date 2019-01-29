@@ -124,7 +124,23 @@ public class M1405update extends AppCompatActivity implements View.OnClickListen
                 Toast.makeText(M1405update.this, msg, Toast.LENGTH_SHORT).show();
                 break;
             case R.id.btIdDel:
+                // 刪除資料
+                tid = b_edid.getText().toString().trim();
+                rowsAffected = dbHper.deleteRec(tid);//真正刪除資料的指令
+                if (rowsAffected == -1) {
+                    msg = "資料表已空, 無法刪除 !";
+                } else if (rowsAffected == 0) {
+                    msg = "找不到欲刪除的記錄, 無法刪除 !";
+                } else {
+                    msg = "第 " + (index + 1) + " 筆記錄  已刪除 ! \n" + "共 " + rowsAffected + " 筆記錄   被刪除 !";
+                    recSet = dbHper.getRecSet();
 
+                    if(index==dbHper.RecCount()){
+                        index --;
+                    }
+                    showRec(index); //重構
+                }
+                Toast.makeText(M1405update.this, msg, Toast.LENGTH_SHORT).show();
                 break;
         }
     }
