@@ -19,6 +19,7 @@
         <activity android:name=".M1405insert"></activity>
         <activity android:name=".M1405query"></activity>
         <activity android:name=".M1405browse"></activity>
+        <activity android:name=".M1405update"></activity>
     </application>
 
 </manifest>

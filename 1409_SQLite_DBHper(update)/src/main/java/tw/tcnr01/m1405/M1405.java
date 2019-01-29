@@ -83,7 +83,7 @@ public class M1405 extends AppCompatActivity {
                 startActivity(it);
                 break;
             case R.id.m_update://修改
-                it.setClass(M1405.this, M1405browse.class);
+                it.setClass(M1405.this, M1405update.class);
                 startActivity(it);
                 break;
             case R.id.m_delete://刪除
