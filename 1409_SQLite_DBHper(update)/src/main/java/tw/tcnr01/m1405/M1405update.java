@@ -16,13 +16,14 @@ import java.util.ArrayList;
 
 public class M1405update extends AppCompatActivity implements View.OnClickListener {
     private EditText e001,e002,e003;
+    private EditText b_edid;
     private TextView count_t,tvTitle;
 
     private FriendDbHelper dbHper;
     private static final String DB_FILE = "friends.db";
     private static final String DB_TABLE = "member";
     private static final int DBversion = 1;
-    private Button btNext,btPrev,btTop,btEnd;
+    private Button btNext,btPrev,btTop,btEnd,btEdit,btDel;
     private int index = 0;
     private ArrayList<String> recSet;
 
@@ -58,10 +59,19 @@ public class M1405update extends AppCompatActivity implements View.OnClickListen
         btTop = (Button) findViewById(R.id.btIdtop);
         btEnd = (Button) findViewById(R.id.btIdend);
 
+        btEdit = (Button) findViewById(R.id.btnupdate);
+        btDel = (Button) findViewById(R.id.btIdDel);
+        b_edid = (EditText) findViewById(R.id.edid);
+
+
         btNext.setOnClickListener(this);
         btPrev.setOnClickListener(this);
         btTop.setOnClickListener(this);
         btEnd.setOnClickListener(this);
+
+        btEdit.setOnClickListener(this);
+        btDel.setOnClickListener(this);
+
 
         //
         initDB();//起始化DB;
@@ -86,6 +96,12 @@ public class M1405update extends AppCompatActivity implements View.OnClickListen
                 ctlPrev();
                 break;
             case R.id.btIdNext:
+                ctlNext();
+                break;
+            case R.id.btnupdate:
+                ctlNext();
+                break;
+            case R.id.btIdDel:
                 ctlNext();
                 break;
         }
