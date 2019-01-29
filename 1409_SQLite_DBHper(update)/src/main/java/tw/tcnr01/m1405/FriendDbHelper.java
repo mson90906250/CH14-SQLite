@@ -185,6 +185,27 @@ public class FriendDbHelper extends SQLiteOpenHelper {
         }
     }
 
+    public int updateRec(String b_id, String b_name, String b_grp, String b_address) {
+       //檢查資料庫是否有資料
+        SQLiteDatabase db = getWritableDatabase();
+        String sql = "SELECT * FROM " + DB_TABLE;
+        Cursor recSet = db.rawQuery(sql, null);
+        if (recSet.getCount() != 0){
+            ContentValues rec = new ContentValues();
+            //   rec.put("id", b_id);
+            rec.put("name", b_name);
+            rec.put("grp", b_grp);
+            rec.put("address", b_address);
+            String whereClause = "id='" + b_id + "'";
+            int rowsAffected = db.update(DB_TABLE, rec, whereClause, null);//真正執行sql指令
+            db.close();
+            return rowsAffected;
+        } else    {
+            db.close();
+            return -1;
+        }
+    }
+
 // ---------
 
 }

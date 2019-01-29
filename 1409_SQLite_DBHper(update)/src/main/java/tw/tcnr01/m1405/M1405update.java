@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -26,6 +27,7 @@ public class M1405update extends AppCompatActivity implements View.OnClickListen
     private Button btNext,btPrev,btTop,btEnd,btEdit,btDel;
     private int index = 0;
     private ArrayList<String> recSet;
+    private String tid,tname,tgrp,taddr;
 
     private float x1; // 觸控的 X 軸位置
     private float y1; // 觸控的 Y 軸位置
@@ -34,6 +36,8 @@ public class M1405update extends AppCompatActivity implements View.OnClickListen
     int range = 50; // 兩點距離
     int ran = 60; // 兩點角度
 
+    private int rowsAffected;
+    private String msg;
 
 
     @Override
@@ -62,6 +66,8 @@ public class M1405update extends AppCompatActivity implements View.OnClickListen
         btEdit = (Button) findViewById(R.id.btnupdate);
         btDel = (Button) findViewById(R.id.btIdDel);
         b_edid = (EditText) findViewById(R.id.edid);
+
+        b_edid.setKeyListener(null);
 
 
         btNext.setOnClickListener(this);
@@ -99,10 +105,26 @@ public class M1405update extends AppCompatActivity implements View.OnClickListen
                 ctlNext();
                 break;
             case R.id.btnupdate:
-                ctlNext();
+                // 資料更新
+                tid = b_edid.getText().toString().trim();
+                tname = e001.getText().toString().trim();
+                tgrp = e002.getText().toString().trim();
+                taddr = e003.getText().toString().trim();
+
+                rowsAffected = dbHper.updateRec(tid, tname, tgrp, taddr);//傳回修改筆數
+                if (rowsAffected == -1) {
+                    msg = "資料表已空, 無法修改 !";
+                } else if (rowsAffected == 0) {
+                    msg = "找不到欲修改的記錄, 無法修改 !";
+                } else {
+                    msg = "第 " + (index + 1) + " 筆記錄  已修改 ! \n" + "共 " + rowsAffected + " 筆記錄   被修改 !";
+                    recSet = dbHper.getRecSet();
+                    showRec(index);
+                }
+                Toast.makeText(M1405update.this, msg, Toast.LENGTH_SHORT).show();
                 break;
             case R.id.btIdDel:
-                ctlNext();
+
                 break;
         }
     }
