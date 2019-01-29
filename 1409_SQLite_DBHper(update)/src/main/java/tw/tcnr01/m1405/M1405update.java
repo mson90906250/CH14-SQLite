@@ -123,10 +123,13 @@ public class M1405update extends AppCompatActivity implements View.OnClickListen
             tvTitle.setText(stHead);
             //--------------------------
             String[] fld = recSet.get(index).split("#");
-            e001.setTextColor(ContextCompat.getColor(this, R.color.Red));
-            e001.setText(fld[1]);
-            e002.setText(fld[2]);
-            e003.setText(fld[3]);
+            b_edid.setTextColor(ContextCompat.getColor(this, R.color.Red));
+            b_edid.setBackgroundColor(ContextCompat.getColor(this, R.color.Yellow));
+            b_edid.setText(fld[0]);//ID
+            //e001.setTextColor(ContextCompat.getColor(this, R.color.Red));
+            e001.setText(fld[1]);//姓名
+            e002.setText(fld[2]);//群組
+            e003.setText(fld[3]);//地址
             //---------------------
         } else        {
             e001.setText("");
