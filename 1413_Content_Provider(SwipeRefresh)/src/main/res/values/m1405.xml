@@ -32,7 +32,7 @@
     <string name="prompt_select_name">請選擇好友</string>
     <string name="btnabandon">放棄</string>
     <string name="btidcancel">結束列表</string>
-    <string name="btnreport">報告</string>
+    <string name="btnreport">顯示列表</string>
 
 
 </resources>
